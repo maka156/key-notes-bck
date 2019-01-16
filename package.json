@@ -1,0 +1,30 @@
+{
+  "name": "key-notes-bck",
+  "version": "0.0.1",
+  "description": "Backend service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maka156/key-notes-bck.git"
+  },
+  "author": "Maria Canache",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maka156/key-notes-bck/issues"
+  },
+  "homepage": "https://github.com/maka156/key-notes-bck#readme",
+  "engine": {
+    "node": ">=8"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.11",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.6"
+  }
+}
