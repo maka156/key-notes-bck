@@ -6,7 +6,6 @@ const note_controller = require('../controllers/note.controller');
  * GET requests
  */
 router.get('/', note_controller.notes);
-//router.get('/:id', note_controller.note_details);
 
 /**
  * POST requests

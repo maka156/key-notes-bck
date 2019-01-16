@@ -9,13 +9,6 @@ exports.notes = (req, res, next) => {
   })
 }
 
-exports.note_details = (req, res, next) => {
-    Book.findById(req.params.id, (err, book) => {
-      if (err) return next(err)
-      res.send(book)
-    })
-  }
-
 exports.note_create = (req, res, next) => {
     let note = new Note(
       {
@@ -25,9 +18,7 @@ exports.note_create = (req, res, next) => {
     );
 
     note.save()
-    .then(data => {
-      console.log("Note saved")
-      
+    .then(data => {      
       let d = []
       d.push(data)
 
