@@ -2,6 +2,7 @@
 const helper = require('../helper.js');
 const Note = require('../models/note.model.js')
 
+// GET request
 exports.notes = (req, res, next) => {
   Note.find({}, (err, notes) => {
     if (err) return next(err)
@@ -9,6 +10,7 @@ exports.notes = (req, res, next) => {
   })
 }
 
+// POST request
 exports.note_create = (req, res, next) => {
     let note = new Note(
       {
@@ -33,6 +35,7 @@ exports.note_create = (req, res, next) => {
     })
 };
 
+// PUT request
 exports.note_update = (req, res, next) => {
   Note.findByIdAndUpdate(req.params.id, {$set: req.body}, err => {
     if (err) return next(err)
@@ -45,6 +48,7 @@ exports.note_update = (req, res, next) => {
   });
 }
 
+// DELETE request
 exports.note_delete = (req, res, next) => {
   Note.findByIdAndRemove(req.params.id, err => {
     if (err) return next(err)

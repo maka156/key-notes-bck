@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const note_controller = require('../controllers/note.controller');
 
+// ROUTING HANDLER
+
 /**
  * GET requests
  */
