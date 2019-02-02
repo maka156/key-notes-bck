@@ -12,7 +12,6 @@ mongoose.connect('mongodb://mongo:27017/keynotes', {useNewUrlParser: true}, err=
 
 const port = process.env.app_port || 8080;
 
-//app.use(express.static(__dirname + '/views'));
 app.use(express.static('public'));
 
 app.use(function(req, res, next) {
@@ -22,10 +21,20 @@ app.use(function(req, res, next) {
   next();
 });
 
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', notes);
+
+// Handle for a 404
+app.use(function(req, res, next) {
+  return res.status(404).send({ message: 'Route'+req.url+' Not found.' });
+});
+
+// Handle for a 500
+app.use(function(err, req, res, next) {
+  return res.status(500).send({ error: err });
+});
 
 app.listen(port, err => {
   if (err) return console.log('Unable to start the server');
